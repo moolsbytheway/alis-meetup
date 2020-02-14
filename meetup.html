@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <title>Alis meetup local</title>
+    </header>
+    <body>
+        <style>
+
+body {
+    font-family: "TT Norms Light", sans-serif;
+    font-size: 15px;
+    background:white;
+}
+b {
+    font-family: "TT Norms Bold", sans-serif;
+}
+
+/* Utils */
+.outlined {
+    border: 1px dashed black;
+    width: 100px;
+    height: 100px;
+}
+
+/* main */
+.card {
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #f16622;
+    color: #000;
+    width:800px;
+    height:550px;
+    margin: auto;
+    margin-top:10px;
+    box-sizing: border-box;
+    position: relative
+}
+
+.wide-containers {
+    width:80%;
+    height:15%;
+    position:relative;
+    z-index:1;
+}
+
+/* sections */
+.card .body {
+    height: 70%;
+    background: #f16622;
+    background-image: url("./assets/bg.jpg");
+    background-size: 200%;
+    
+}
+
+.card .header {
+    position:relative;
+}
+
+.card .footer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding-left: 3em;
+}
+
+.card .timeline {
+  position:relative;
+  box-sizing: border-box;
+  padding: 5px 15px;
+  color: white;
+  background: #E2531E;
+  box-shadow: 0 0 20px 0 #E2531E;
+  width: 32%;
+  height: 80%;
+  position: absolute;
+  top:0;
+  right: 50px;
+  z-index: 2;
+  background-repeat: no-repeat;
+  background-image: url("./assets/bg.jpg");
+  background-size: 800%;
+}
+
+/* Section details */
+
+/* header */
+
+.header h1 {
+    margin: 0;
+    position:absolute;
+    bottom:-6px;
+    padding-left: 1.25em;
+    padding-bottom: 5px;
+    color: #f16622;
+    font-size: 2.3em;
+}
+.header h1 span {
+    color: #47A9BF;
+}
+
+.header > img {
+  width: 100px;
+  transform: rotateY(180deg);
+  position:absolute;
+  bottom: 0;
+  right: 0;
+  transition-duration: .3s;
+}
+
+/* body */
+.card .body p {
+    color: white;
+    padding: 2em 1.5em;;
+    font-size: 2em;
+    margin:0;
+    line-height: 1.3em;
+    max-width: 70%;
+    text-transform: drop-cap;
+}
+
+/* Footer */
+
+.footer {
+  position: relative; 
+}
+.footer img {
+    width: 40px;
+    height: auto;
+
+}
+.footer legend {
+    color: #aaa;
+    padding:0;
+    font-size: 1.5em;
+    
+    
+}
+
+/* Timeline */
+
+.timeline > .alis-url {
+  color: white;
+  font-size: 1.3em;
+  margin: 0;
+  position:absolute;
+  bottom:2px;
+  text-decoration: none;
+}
+
+.timeline-header > h4 {
+  margin:10px 0;
+}
+
+.timeline-header > img {
+  height: 50px;
+}
+
+.timeline .timeline-item {
+  list-style-type: none;
+  border-bottom:1px solid white;
+  padding: 8px
+}
+
+.timeline-item li {
+  padding: 1px;
+  transition-duration: .2s;
+}
+.timeline-item li:hover {
+  background: white;
+  color:#E2531E;
+  cursor: default;
+}
+
+.timeline-item + .pause {
+  background: white;
+  color: #E2531E;
+  text-transform: uppercase;
+  padding-left: 10px;
+}
+.timeline-header .trigger {
+  position: absolute;
+  top:0;
+  right:2px;
+  cursor: pointer;
+}
+
+.plane {
+  position: absolute;
+  bottom: -100px;
+  left: 0;
+  width: 100px;
+  z-index: 100;
+}
+
+.launch-plane {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+/* Keyframes */
+@keyframes blink {
+  0%   { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes rocket-launch {
+  0%   { transform: translateY(0)}
+  50% {  transform: translateY(400px) }
+  60% {  transform: translateY(440px) }
+  100% {  transform: translateY(-100px) }
+}
+
+@keyframes plane-launch {
+  0%   { transform: translate(0);}
+  25% { transform: translate(50px, -100px); }
+  50% { transform: translate(200px, -100px); }
+  100% { transform: translate(1000px, -660px); }
+}
+
+@keyframes speed-car {
+  0%   { transform: translateX(0)}
+  50% {  transform: translateX(-500px) }
+  100% {  transform: translateX(0) }
+}
+
+@keyframes go-top {
+  0%   { padding-bottom: 2px;}
+  50% {  padding-bottom: 50px; }
+  100% {   padding-bottom: 2px; }
+}
+
+/* Animations */
+
+.timeline-header .trigger:hover + img {
+  animation: rocket-launch 5s;
+}
+
+.header h1:hover {
+  animation: go-top 6s;
+}
+.header h1:hover+ img {
+  animation: speed-car 6s;
+}
+
+.launch-plane:hover + .plane {
+  animation: plane-launch 5s linear;
+}
+
+</style>
+        
+        
+<div class=card>
+  <section class="header wide-containers ">
+      <h1>
+          MeetUp <span>DevConf!</span>
+      </h1>
+     <img src="./assets//car.png" />
+  
+      
+
+  </section>
+  <section class="body wide-containers">
+      <p>
+          Nous sommes heureux de vous convier au premier <b>MeetUp</b> Spécial Développement d'Alis Mauritanie qui se déroulera cd vendredi de 17h15 à 20h30 au sein de l'<b>hotel Mauricenter</b>.
+      </p>
+  </section>
+  <section class="footer wide-containers">
+      <img src="./assets/linkedin.png"></img>
+      <legend>alis-mauritanie</lengend>
+  </section>
+  <section class="timeline">
+  <div class="timeline-header">
+  <span class="trigger">Launch rocket</span>
+    <img src="./assets/logo.png" />
+    
+    <h4>TIMELINE</h4>
+  </div>
+  
+  <ul class="timeline-item">
+    <li>17h15-18h15</li>
+    <li><b>ELK</b></li>
+    <li>Sidi Biha</li>
+  </ul>
+  <ul class="timeline-item">
+    <li>18h15-19h00</li>
+    <li><b>CSS Tricks</b></li>
+    <li>Moulaye Abderrahmane</li>
+  </ul>
+  <h3 class=pause>pause</h3>
+  <ul class="timeline-item">
+    <li>19h30-20h30</li>
+    <li><b>CQRS & Event Sourcing</b></li>
+    <li>Khaled EL MOUNA</li>
+  </ul>
+  <a class="alis-url" href="http://www.alis-intl.com">
+    www.alis-intl.com
+  </a>
+  
+  </section>
+  <span class=launch-plane>Launch plane</span>
+  <img class="plane" src="./assets/plane.png" />
+  
+</div>
+
+
+    </body>
+</html>
